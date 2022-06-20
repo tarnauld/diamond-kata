@@ -1,0 +1,8 @@
+bin.name="diamond"
+args=["A"]
+status="success"
+stdout="""
+A
+
+"""
+stderr=""
