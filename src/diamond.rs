@@ -40,7 +40,7 @@ pub fn build_diamond(input: char) -> String {
 
 #[cfg(test)]
 pub mod tests {
-    use super::{build_diamond, distance, alphabet};
+    use super::{letter_at_pos, build_diamond, distance, alphabet};
 
     fn number_of_lines(input: String) -> usize {
        input.matches('\n').count() 
@@ -70,5 +70,15 @@ pub mod tests {
         assert_eq!(distance(&alphabet, 'A', 'C'), 2);
         assert_eq!(distance(&alphabet, 'B', 'C'), 1);
         assert_eq!(distance(&alphabet, 'C', 'C'), 0);
+    }
+
+    #[test]
+    pub fn should_place_letter_at_position() {
+        let alphabet = alphabet();
+        assert_eq!(letter_at_pos(&alphabet, 0, 'C'), 'A');
+        assert_eq!(letter_at_pos(&alphabet, 1, 'C'), 'B');
+        assert_eq!(letter_at_pos(&alphabet, 2, 'C'), 'C');
+        assert_eq!(letter_at_pos(&alphabet, 3, 'C'), 'B');
+        assert_eq!(letter_at_pos(&alphabet, 4, 'C'), 'A');
     }
 }
